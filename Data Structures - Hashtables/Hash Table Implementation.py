@@ -53,6 +53,17 @@ class Hashtable:
 				reference.pop(i)
 				return None
 		return None
+	
+	def Keys(self):
+		""" to get the keys from a dictionary"""
+		print(self.hashmap)
+		keysss = []
+		m = self.hashmap
+		for i in range(len(m)):
+		    if len(m[i]):
+			for j in range(len(m[i])):
+			    keysss.append(m[i][j][0])
+		return keysss
 
 h=Hashtable()
 h.put('grapes',1000)
@@ -60,6 +71,7 @@ h.put('apples',10)
 h.put('ora',300)
 h.put('banan',200)
 print(h.get('grapes'))
+print(h.Keys())
 print(h)
 h.remove('apples')
 print(h)
