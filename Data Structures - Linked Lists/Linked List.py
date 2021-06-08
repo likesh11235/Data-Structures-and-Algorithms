@@ -51,23 +51,29 @@ class LinkedList():
     
 
   def remove(self,index):
-    temp = self.head
-    i=0
-    if index>=self.length:
-      print("Entered wrong index")
-    
-    if index == 0:
-      self.head = self.head.next
-      self.length -= 1   
-      return       
-
-    while i<self.length:
-      if i == index-1:
-        temp.next = temp.next.next
-        self.length-=1
-        break
-      i+=1
-      temp = temp.next
+    i =0
+        currentNode = self.head
+        if index ==0:
+            self.head = currentNode.next 
+            self.length -=1
+        elif index<0:
+            print("index cant be negative")
+        else:
+            if index < (self.length):
+                while i<(index):
+                    prevNode = currentNode
+                    currentNode = currentNode.next
+                    nextNode = currentNode.next
+                    i+=1
+                if index != (self.length-1):
+                    prevNode.next = nextNode
+                    self.length -=1
+                else:
+                    prevNode.next = None
+                    self.tail = prevNode
+                    self.length -=1
+            else:
+                print("no element at index")
     
   def printl(self):
     temp = self.head
